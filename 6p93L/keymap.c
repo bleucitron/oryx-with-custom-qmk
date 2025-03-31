@@ -191,5 +191,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT(MOD_LGUI, KC_ESCAPE):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case MT(MOD_RGUI, KC_ENTER):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case MT(MOD_LALT, KC_BSPC):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
+}
 
