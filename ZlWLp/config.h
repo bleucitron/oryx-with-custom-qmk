@@ -9,7 +9,7 @@
 #define RGB_MATRIX_TIMEOUT 600000
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "ZlWLp/AzB9Jx"
+#define SERIAL_NUMBER "ZlWLp/Wv4O3n"
 #define LAYER_STATE_16BIT
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
