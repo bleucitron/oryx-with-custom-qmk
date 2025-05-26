@@ -18,9 +18,9 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
-    TO(5),          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_EQUAL,       
+    TO(4),          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_EQUAL,       
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,       
-    MT(MOD_LCTL, KC_GRAVE),LT(4, KC_A),    LT(3, KC_S),    LT(1, KC_D),    MT(MOD_LCTL, KC_F),KC_G,                                           KC_H,           MT(MOD_RCTL, KC_J),LT(1, KC_K),    LT(3, KC_L),    LT(4, KC_SCLN), MT(MOD_RCTL, KC_QUOTE),
+    MT(MOD_LCTL, KC_GRAVE),LT(3, KC_A),    MT(MOD_LGUI, KC_S),LT(1, KC_D),    MT(MOD_LCTL, KC_F),KC_G,                                           KC_H,           MT(MOD_RCTL, KC_J),LT(1, KC_K),    MT(MOD_RGUI, KC_L),LT(3, KC_SCLN), MT(MOD_RCTL, KC_QUOTE),
     KC_LEFT_SHIFT,  KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       MT(MOD_RSFT, KC_BSLS),
                                                     MT(MOD_LALT, KC_SPACE),MT(MOD_LGUI, KC_ESCAPE),                                LT(2, KC_ENTER),MT(MOD_RALT, KC_BSPC)
   ),
