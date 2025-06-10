@@ -194,3 +194,35 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT_voyager(
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+                            '*', '*',  '*', '*'
+    );
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT(MOD_RALT, KC_GRAVE):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case MT(MOD_RALT, KC_QUOTE):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case MT(MOD_LGUI, KC_ESCAPE):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case LT(2, KC_ENTER):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case LT(3, KC_BSPC):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
+}
+
