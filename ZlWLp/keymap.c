@@ -82,13 +82,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'R', 'R'
-);
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT(
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+                            '*', '*',  '*', '*'
+    );
 
 
 
@@ -316,3 +317,31 @@ tap_dance_action_t tap_dance_actions[] = {
         [DANCE_0] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
         [DANCE_1] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
 };
+
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT(MOD_LCTL, KC_GRAVE):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case MT(MOD_RCTL, KC_QUOTE):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case MT(MOD_LGUI, KC_ESCAPE):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case TD(DANCE_1):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case MT(MOD_LALT, KC_BSPC):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        case TD(DANCE_0):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
+}
