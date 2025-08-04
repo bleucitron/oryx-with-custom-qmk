@@ -17,19 +17,14 @@ enum custom_keycodes {
 
 
 
-enum tap_dance_codes {
-  DANCE_0,
-  DANCE_1,
-};
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     TT(5),          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_EQUAL,       
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,       
-    MT(MOD_LCTL, KC_GRAVE),KC_A,           LT(4, KC_S),    KC_D,           KC_F,           KC_G,                                           KC_H,           KC_J,           KC_K,           LT(4, KC_L),    TD(DANCE_0),    MT(MOD_RCTL, KC_QUOTE),
+    MT(MOD_LCTL, KC_GRAVE),KC_A,           LT(4, KC_S),    KC_D,           KC_F,           KC_G,                                           KC_H,           KC_J,           KC_K,           LT(4, KC_L),    LT(2, KC_SCLN), MT(MOD_RCTL, KC_QUOTE),
     KC_LEFT_SHIFT,  KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       MT(MOD_LALT, KC_BSLS),
-                                                    MT(MOD_RALT, KC_SPACE),MT(MOD_LGUI, KC_ESCAPE),                                TD(DANCE_1),    MT(MOD_LALT, KC_BSPC)
+                                                    MT(MOD_RALT, KC_SPACE),MT(MOD_LGUI, KC_ESCAPE),                                LT(1, KC_ENTER),MT(MOD_LALT, KC_BSPC)
   ),
   [1] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
@@ -209,116 +204,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-typedef struct {
-    bool is_press_action;
-    uint8_t step;
-} tap;
-
-enum {
-    SINGLE_TAP = 1,
-    SINGLE_HOLD,
-    DOUBLE_TAP,
-    DOUBLE_HOLD,
-    DOUBLE_SINGLE_TAP,
-    MORE_TAPS
-};
-
-static tap dance_state[2];
-
-uint8_t dance_step(tap_dance_state_t *state);
-
-uint8_t dance_step(tap_dance_state_t *state) {
-    if (state->count == 1) {
-        if (state->interrupted || !state->pressed) return SINGLE_TAP;
-        else return SINGLE_HOLD;
-    } else if (state->count == 2) {
-        if (state->interrupted) return DOUBLE_SINGLE_TAP;
-        else if (state->pressed) return DOUBLE_HOLD;
-        else return DOUBLE_TAP;
-    }
-    return MORE_TAPS;
-}
-
-
-void on_dance_0(tap_dance_state_t *state, void *user_data);
-void dance_0_finished(tap_dance_state_t *state, void *user_data);
-void dance_0_reset(tap_dance_state_t *state, void *user_data);
-
-void on_dance_0(tap_dance_state_t *state, void *user_data) {
-    if(state->count == 3) {
-        tap_code16(KC_SCLN);
-        tap_code16(KC_SCLN);
-        tap_code16(KC_SCLN);
-    }
-    if(state->count > 3) {
-        tap_code16(KC_SCLN);
-    }
-}
-
-void dance_0_finished(tap_dance_state_t *state, void *user_data) {
-    dance_state[0].step = dance_step(state);
-    switch (dance_state[0].step) {
-        case SINGLE_TAP: register_code16(KC_SCLN); break;
-        case SINGLE_HOLD: layer_on(2); break;
-        case DOUBLE_TAP: layer_move(2); break;
-        case DOUBLE_SINGLE_TAP: tap_code16(KC_SCLN); register_code16(KC_SCLN);
-    }
-}
-
-void dance_0_reset(tap_dance_state_t *state, void *user_data) {
-    wait_ms(10);
-    switch (dance_state[0].step) {
-        case SINGLE_TAP: unregister_code16(KC_SCLN); break;
-        case SINGLE_HOLD:
-          layer_off(2);
-        break;
-        case DOUBLE_SINGLE_TAP: unregister_code16(KC_SCLN); break;
-    }
-    dance_state[0].step = 0;
-}
-void on_dance_1(tap_dance_state_t *state, void *user_data);
-void dance_1_finished(tap_dance_state_t *state, void *user_data);
-void dance_1_reset(tap_dance_state_t *state, void *user_data);
-
-void on_dance_1(tap_dance_state_t *state, void *user_data) {
-    if(state->count == 3) {
-        tap_code16(KC_ENTER);
-        tap_code16(KC_ENTER);
-        tap_code16(KC_ENTER);
-    }
-    if(state->count > 3) {
-        tap_code16(KC_ENTER);
-    }
-}
-
-void dance_1_finished(tap_dance_state_t *state, void *user_data) {
-    dance_state[1].step = dance_step(state);
-    switch (dance_state[1].step) {
-        case SINGLE_TAP: register_code16(KC_ENTER); break;
-        case SINGLE_HOLD: layer_on(1); break;
-        case DOUBLE_TAP: layer_move(1); break;
-        case DOUBLE_SINGLE_TAP: tap_code16(KC_ENTER); register_code16(KC_ENTER);
-    }
-}
-
-void dance_1_reset(tap_dance_state_t *state, void *user_data) {
-    wait_ms(10);
-    switch (dance_state[1].step) {
-        case SINGLE_TAP: unregister_code16(KC_ENTER); break;
-        case SINGLE_HOLD:
-          layer_off(1);
-        break;
-        case DOUBLE_SINGLE_TAP: unregister_code16(KC_ENTER); break;
-    }
-    dance_state[1].step = 0;
-}
-
-tap_dance_action_t tap_dance_actions[] = {
-        [DANCE_0] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
-        [DANCE_1] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
-};
-
-
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LCTL, KC_GRAVE):
@@ -330,13 +215,13 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LGUI, KC_ESCAPE):
             // Immediately select the hold action when another key is pressed.
             return true;
-        case TD(DANCE_1):
+        case LT(1, KC_ENTER):
             // Immediately select the hold action when another key is pressed.
             return true;
         case MT(MOD_LALT, KC_BSPC):
             // Immediately select the hold action when another key is pressed.
             return true;
-        case TD(DANCE_0):
+        case LT(2, KC_SCLN):
             // Immediately select the hold action when another key is pressed.
             return true;
 
@@ -345,3 +230,4 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 }
+
