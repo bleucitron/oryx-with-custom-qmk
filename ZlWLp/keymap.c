@@ -96,12 +96,10 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return true;
         case MT(MOD_LGUI, KC_ESCAPE):
             return true;
-        case LT(1, KC_BSPC):
+        case LT(1, KC_ENTER):
             return true;
-				case MT(MOD_LALT, KC_SCLN):
+				case MT(MOD_LALT, KC_BSPC):
             return true;
-        // case MT(MOD_LALT, KC_ENTER):
-        //     return true;
 
         default:
             // Do not select the hold action when another key is pressed.
