@@ -10,7 +10,7 @@
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "JRlY9/nlJamJ"
+#define SERIAL_NUMBER "JRlY9/B4w6Nw"
 #define LAYER_STATE_16BIT
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
@@ -25,6 +25,7 @@
 #define AUTO_MOUSE_DEFAULT_LAYER 8
 #define AUTO_MOUSE_TIME 500
 #define AUTO_MOUSE_THRESHOLD 8
+#define AUTO_MOUSE_ONESHOT
 #define AUTO_MOUSE_SCROLL_THRESHOLD AUTO_MOUSE_THRESHOLD / NAVIGATOR_SCROLL_DIVIDER
 #define NAVIGATOR_SCROLL_INVERT_X
 #define NAVIGATOR_SCROLL_INVERT_Y
