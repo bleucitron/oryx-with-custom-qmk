@@ -302,17 +302,12 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        // Whether or to immediately select the hold action when another key is pressed.
-        // case MT(MOD_RALT, KC_SPACE):
-        //     return false;
         case MT(MOD_LCTL, KC_GRAVE):
             return true;
         case MT(MOD_RCTL, KC_QUOTE):
             return true;
-        case MT(MOD_LSFT, KC_ESCAPE):
+        case MT(MOD_LGUI, KC_ESCAPE):
             return true;
-        // case MT(MOD_LGUI, KC_ESCAPE):
-        //     return true;
         case MT(MOD_RALT, KC_ENTER):
             return true;
         case LT(2, KC_BSPC):
