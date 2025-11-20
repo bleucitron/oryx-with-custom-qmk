@@ -10,7 +10,7 @@
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "JRlY9/ZPRW47"
+#define SERIAL_NUMBER "JRlY9/B4Rpvd"
 #define LAYER_STATE_16BIT
 #define HSS(report) host_system_send(record->event.pressed ? report : 0); return false
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
