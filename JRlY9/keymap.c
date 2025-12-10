@@ -318,7 +318,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MT(MOD_LSFT, KC_Z):
+        case MT(MOD_LSFT, KC_A):
             return false;
         case MT(MOD_LCTL, KC_S):
             return false;
@@ -332,7 +332,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
             return false;
         case MT(MOD_RCTL, KC_L):
             return false;
-        case MT(MOD_RSFT, KC_SLASH):
+        case MT(MOD_RSFT, KC_SCLN):
             return false;
 
         // case MT(MOD_LCTL, KC_GRAVE):
