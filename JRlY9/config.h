@@ -2,21 +2,15 @@
 #undef DEBOUNCE
 #define DEBOUNCE 5
 
-#define PERMISSIVE_HOLD
-
 #undef RGB_MATRIX_TIMEOUT
 #define RGB_MATRIX_TIMEOUT 600000
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "JRlY9/bvVBZg"
+#define SERIAL_NUMBER "JRlY9/40vgxn"
 #define LAYER_STATE_16BIT
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
-#define POINTING_DEVICE_HIRES_SCROLL_ENABLE
-#define POINTING_DEVICE_HIRES_SCROLL_EXPONENT 0
-#define MOUSE_EXTENDED_REPORT
-#define WHEEL_EXTENDED_REPORT
 #define NAVIGATOR_SCROLL_DIVIDER 50
 
 #define AUTOMOUSE_LAYER 7
