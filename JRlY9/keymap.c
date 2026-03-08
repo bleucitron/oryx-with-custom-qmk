@@ -233,23 +233,23 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
                             '*', '*',  '*', '*'
     );
 
-// bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-//     switch (keycode) {
-//         case MT(MOD_LCTL, KC_GRAVE):
-//             return true;
-//         case MT(MOD_RCTL, KC_QUOTE):
-//             return true;
-//         case MT(MOD_LGUI, KC_ESCAPE):
-//             return true;
-//         case MT(MOD_RALT, KC_ENTER):
-//             return true;
-//         case LT(2, KC_BSPC):
-//             return true;
-//
-//         default:
-//             return false;
-//     }
-// }
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // case MT(MOD_LCTL, KC_GRAVE):
+        //     return true;
+        // case MT(MOD_RCTL, KC_QUOTE):
+        //     return true;
+        case MT(MOD_LGUI, KC_ESCAPE):
+            return true;
+        case MEH_T(KC_ENTER):
+            return true;
+        case LT(2, KC_BSPC):
+            return true;
+
+        default:
+            return false;
+    }
+}
 
 // bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 //     switch (keycode) {
