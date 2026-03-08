@@ -233,55 +233,55 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
                             '*', '*',  '*', '*'
     );
 
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case MT(MOD_LCTL, KC_GRAVE):
-            return true;
-        case MT(MOD_RCTL, KC_QUOTE):
-            return true;
-        case MT(MOD_LGUI, KC_ESCAPE):
-            return true;
-        case MT(MOD_RALT, KC_ENTER):
-            return true;
-        case LT(2, KC_BSPC):
-            return true;
+// bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+//     switch (keycode) {
+//         case MT(MOD_LCTL, KC_GRAVE):
+//             return true;
+//         case MT(MOD_RCTL, KC_QUOTE):
+//             return true;
+//         case MT(MOD_LGUI, KC_ESCAPE):
+//             return true;
+//         case MT(MOD_RALT, KC_ENTER):
+//             return true;
+//         case LT(2, KC_BSPC):
+//             return true;
+//
+//         default:
+//             return false;
+//     }
+// }
 
-        default:
-            return false;
-    }
-}
-
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case MT(MOD_LSFT, KC_A):
-            return false;
-        case MT(MOD_LCTL, KC_S):
-            return false;
-        case MT(MOD_LALT, KC_D):
-            return false;
-        case MT(MOD_LGUI, KC_F):
-            return false;
-        case MT(MOD_RGUI, KC_J):
-            return false;
-        case MT(MOD_LALT, KC_K):
-            return false;
-        case MT(MOD_RCTL, KC_L):
-            return false;
-        case MT(MOD_RSFT, KC_SCLN):
-            return false;
-
-        // case MT(MOD_LCTL, KC_GRAVE):
-        //     return true;
-        // case MT(MOD_RCTL, KC_QUOTE):
-        //     return true;
-        // case MT(MOD_LGUI, KC_ESCAPE):
-        //     return true;
-        // case MT(MOD_RALT, KC_ENTER):
-        //     return true;
-        // case LT(2, KC_BSPC):
-        //     return true;
-
-        default:
-            return false;
-    }
-}
+// bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+//     switch (keycode) {
+//         case MT(MOD_LSFT, KC_A):
+//             return false;
+//         case MT(MOD_LCTL, KC_S):
+//             return false;
+//         case MT(MOD_LALT, KC_D):
+//             return false;
+//         case MT(MOD_LGUI, KC_F):
+//             return false;
+//         case MT(MOD_RGUI, KC_J):
+//             return false;
+//         case MT(MOD_LALT, KC_K):
+//             return false;
+//         case MT(MOD_RCTL, KC_L):
+//             return false;
+//         case MT(MOD_RSFT, KC_SCLN):
+//             return false;
+//
+//         // case MT(MOD_LCTL, KC_GRAVE):
+//         //     return true;
+//         // case MT(MOD_RCTL, KC_QUOTE):
+//         //     return true;
+//         // case MT(MOD_LGUI, KC_ESCAPE):
+//         //     return true;
+//         // case MT(MOD_RALT, KC_ENTER):
+//         //     return true;
+//         // case LT(2, KC_BSPC):
+//         //     return true;
+//
+//         default:
+//             return false;
+//     }
+// }
