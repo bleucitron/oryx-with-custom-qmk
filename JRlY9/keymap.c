@@ -256,8 +256,6 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return true;
         case MT(MOD_RALT, KC_BSPC):
             return true;
-        case LT(3, KC_SPACE):
-            return true;
         case LT(2, KC_ENTER):
             return true;
 
