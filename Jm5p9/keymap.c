@@ -237,3 +237,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+// DEFINED MANUALLY
+
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT(
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+                            '*', '*',  '*', '*'
+    );
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(3, KC_C):
+            return true;
+        case LT(3, KC_COMMA):
+            return true;
+
+        case MT(MOD_LGUI, KC_ESCAPE):
+            return true;
+        case LT(2, KC_ENTER):
+            return true;
+        case MT(MOD_RCTL, KC_BSPC):
+            return true;
+
+        default:
+            return false;
+    }
+}
+
