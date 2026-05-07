@@ -1,4 +1,3 @@
-#define FLOW_TAP_TERM 100
 #define CHORDAL_HOLD
 #undef DEBOUNCE
 #define DEBOUNCE 5
@@ -11,7 +10,7 @@
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "JRlY9/9DX6z3"
+#define SERIAL_NUMBER "JRlY9/orB0Rl"
 #define LAYER_STATE_16BIT
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
