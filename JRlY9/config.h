@@ -1,16 +1,14 @@
+#define FLOW_TAP_TERM 150
 #define CHORDAL_HOLD
 #undef DEBOUNCE
 #define DEBOUNCE 5
-
-#undef TAPPING_TERM
-#define TAPPING_TERM 150
 
 #undef RGB_MATRIX_TIMEOUT
 #define RGB_MATRIX_TIMEOUT 600000
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "JRlY9/orB0Rl"
+#define SERIAL_NUMBER "JRlY9/m5yLRV"
 #define LAYER_STATE_16BIT
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
