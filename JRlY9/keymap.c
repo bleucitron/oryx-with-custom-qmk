@@ -92,6 +92,11 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
   '*', '*', '*', '*'
 );
 
+const uint16_t PROGMEM combo0[] = { LT(2, KC_COMMA), KC_DOT, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(combo0, KC_BSPC),
+};
 
 
 
