@@ -8,7 +8,7 @@
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "JRlY9/wODWvj"
+#define SERIAL_NUMBER "JRlY9/VqQ4dM"
 #define LAYER_STATE_16BIT
 #define COMBO_COUNT 2
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
