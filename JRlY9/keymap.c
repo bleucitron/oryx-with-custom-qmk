@@ -17,7 +17,8 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(6, KC_Y)
+#define DUAL_FUNC_0 LT(15, KC_8)
+#define DUAL_FUNC_1 LT(13, KC_T)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -25,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,        
     MT(MOD_LCTL, KC_GRAVE),MEH_T(KC_A),    MT(MOD_LCTL, KC_S),MT(MOD_RALT, KC_D),MT(MOD_LGUI, KC_F),ALL_T(KC_G),                                    ALL_T(KC_H),    MT(MOD_RGUI, KC_J),MT(MOD_RALT, KC_K),MT(MOD_RCTL, KC_L),MEH_T(KC_SCLN), MT(MOD_RCTL, KC_QUOTE),
     KC_LEFT_SHIFT,  KC_Z,           KC_X,           LT(2, KC_C),    KC_V,           KC_B,                                           KC_N,           KC_M,           LT(2, KC_COMMA),KC_DOT,         KC_SLASH,       KC_RIGHT_SHIFT, 
-                                                    DUAL_FUNC_0,    MT(MOD_LGUI, KC_ESCAPE),                                LT(1, KC_ENTER),MT(MOD_RALT, KC_BSPC)
+                                                    DUAL_FUNC_0,    MT(MOD_LGUI, KC_ESCAPE),                                LT(1, KC_ENTER),DUAL_FUNC_1
   ),
   [1] = LAYOUT_voyager(
     TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
@@ -224,6 +225,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           register_code16(KC_SPACE);
         } else {
           unregister_code16(KC_SPACE);
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_MS_BTN1);
+        } else {
+          unregister_code16(KC_MS_BTN1);
+        }  
+      }  
+      return false;
+    case DUAL_FUNC_1:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(KC_BSPC);
+        } else {
+          unregister_code16(KC_BSPC);
         }
       } else {
         if (record->event.pressed) {
