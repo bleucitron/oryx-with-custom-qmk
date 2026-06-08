@@ -10,7 +10,7 @@
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define HOLD_ON_OTHER_KEY_PRESS
-#define SERIAL_NUMBER "aOjaD/Jam9z9"
+#define SERIAL_NUMBER "aOjaD/eaLAVr"
 #define LAYER_STATE_8BIT
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
@@ -19,7 +19,6 @@
 
 #define NAVIGATOR_TRACKBALL_ROTATION 350
 #define NAVIGATOR_AIM_DIVIDER 2
-#define NAVIGATOR_AIM_LAYERS {3}
 #define NAVIGATOR_SCROLL_INVERT_X
 #define NAVIGATOR_SCROLL_INVERT_Y
 #define RGB_MATRIX_STARTUP_SPD 60
