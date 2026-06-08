@@ -70,14 +70,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  '*', '*', '*', '*'
-);
-
 const uint16_t PROGMEM combo0[] = { LT(2, KC_COMMA), KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo1[] = { LT(2, KC_C), KC_X, COMBO_END};
 
@@ -227,3 +219,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+// DEFINED MANUALLY
+
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT(
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+                            '*', '*',  '*', '*'
+    );
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(2, KC_C):
+            return true;
+        case LT(2, KC_COMMA):
+            return true;
+        case MT(MOD_LGUI, KC_ESCAPE):
+            return true;
+        case MT(MOD_RSFT, KC_BSPC):
+            return true;
+        case LT(1, KC_ENTER):
+            return true;
+
+        default:
+            return false;
+    }
+}
+
