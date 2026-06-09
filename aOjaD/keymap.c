@@ -237,13 +237,16 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(2, KC_C):
             return true;
-        case LT(2, KC_COMMA):
-            return true;
-        case LT(5, KC_BSPC):
-            return true;
+
         case MT(MOD_LGUI, KC_ESCAPE):
             return true;
+
         case LT(1, KC_ENTER):
+            return true;
+
+        case LT(5, KC_BSPC):
+            return true;
+        case MT(MOD_RCTL, KC_BSPC):
             return true;
 
         default:
