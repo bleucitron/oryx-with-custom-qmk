@@ -235,6 +235,9 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case MT(MOD_LCTL, KC_GRAVE):
+            return true;
+
         case LT(2, KC_C):
             return true;
 
@@ -251,6 +254,9 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case LT(5, KC_BSPC):
             return true;
         case MT(MOD_RALT, KC_O):
+            return true;
+
+        case MT(MOD_RCTL, KC_QUOTE):
             return true;
 
         default:
