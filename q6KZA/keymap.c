@@ -246,7 +246,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LGUI, KC_ESCAPE):
             return true;
 
-        case LT(1, KC_ENTER):
+        case LT(7, KC_ENTER):
             return true;
         case LT(1, KC_DOT):
             return true;
