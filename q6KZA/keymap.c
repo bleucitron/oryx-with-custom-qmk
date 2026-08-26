@@ -77,17 +77,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  '*', '*', '*', '*'
-);
-
-
-
-
 extern rgb_config_t rgb_matrix_config;
 
 RGB hsv_to_rgb_with_value(HSV hsv) {
@@ -232,3 +221,50 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+// DEFINED MANUALLY
+
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT(
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+        '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', '*',
+                            '*', '*',  '*', '*'
+    );
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT(MOD_LCTL, KC_GRAVE):
+            return true;
+
+        case LT(2, KC_C):
+            return false;
+        case LT(2, KC_COMMA):
+            return true;
+
+        case MT(MOD_LGUI, KC_ESCAPE):
+            return true;
+
+        case LT(1, KC_ENTER):
+            return true;
+        case LT(1, KC_DOT):
+            return true;
+
+        case MT(MOD_RCTL, KC_BSPC):
+            return true;
+        case MT(MOD_RALT, KC_BSPC):
+            return true;
+        case LT(5, KC_BSPC):
+            return true;
+        case MT(MOD_RALT, KC_O):
+            return true;
+
+        case MT(MOD_RCTL, KC_QUOTE):
+            return true;
+
+        default:
+            return false;
+    }
+}
+
