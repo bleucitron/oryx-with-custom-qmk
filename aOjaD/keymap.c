@@ -237,8 +237,14 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LCTL, KC_GRAVE):
             return true;
+        case MT(MOD_RCTL, KC_QUOTE):
+            return true;
+        case MT(MOD_RCTL, KC_BSPC):
+            return true;
 
-        case LT(2, KC_C):
+        case MT(MOD_RALT, KC_BSPC):
+            return true;
+        case MT(MOD_RALT, KC_O):
             return true;
 
         case MT(MOD_LGUI, KC_ESCAPE):
@@ -248,20 +254,13 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return true;
         case LT(1, KC_BSPC):
             return true;
-
-        case MT(MOD_RCTL, KC_BSPC):
-            return true;
-        case MT(MOD_RALT, KC_BSPC):
-            return true;
-        case LT(5, KC_BSPC):
-            return true;
-        case MT(MOD_RALT, KC_O):
-            return true;
-
         case LT(1, KC_DOT):
             return true;
 
-        case MT(MOD_RCTL, KC_QUOTE):
+        case LT(2, KC_C):
+            return true;
+
+        case LT(5, KC_BSPC):
             return true;
 
         default:
