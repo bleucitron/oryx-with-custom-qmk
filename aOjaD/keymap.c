@@ -22,9 +22,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
     KC_TAB,         KC_Q,           MEH_T(KC_W),    ALL_T(KC_E),    KC_R,           KC_T,                                           KC_Y,           KC_U,           ALL_T(KC_I),    MEH_T(KC_O),    KC_P,           KC_BSPC,        
-    MT(MOD_LCTL, KC_GRAVE),KC_A,           MT(MOD_LCTL, KC_S),MT(MOD_LALT, KC_D),MT(MOD_LGUI, KC_F),KC_G,                                           KC_H,           MT(MOD_RGUI, KC_J),MT(MOD_RALT, KC_K),MT(MOD_RCTL, KC_L),KC_SCLN,        MT(MOD_RCTL, KC_QUOTE),
+    MT(MOD_LCTL, KC_GRAVE),KC_A,           MT(MOD_LCTL, KC_S),MT(MOD_RALT, KC_D),MT(MOD_LGUI, KC_F),KC_G,                                           KC_H,           MT(MOD_RGUI, KC_J),MT(MOD_RALT, KC_K),MT(MOD_RCTL, KC_L),KC_SCLN,        MT(MOD_RCTL, KC_QUOTE),
     KC_LEFT_SHIFT,  MT(MOD_LSFT, KC_Z),LT(3, KC_X),    LT(2, KC_C),    KC_V,           KC_B,                                           KC_N,           KC_M,           LT(2, KC_COMMA),LT(3, KC_DOT),  MT(MOD_RSFT, KC_SLASH),MT(MOD_RSFT, KC_BSLS),
-                                                    MT(MOD_RALT, KC_SPACE),MT(MOD_LGUI, KC_ESCAPE),                                MT(MOD_RSFT, KC_ENTER),LT(1, KC_BSPC)
+                                                    MT(MOD_LALT, KC_SPACE),MT(MOD_LGUI, KC_ESCAPE),                                MT(MOD_RSFT, KC_ENTER),LT(1, KC_BSPC)
   ),
   [1] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
