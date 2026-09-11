@@ -1,7 +1,0 @@
-{
-    "modules": [
-        "zsa/oryx",
-        "zsa/automouse",
-        "zsa/defaults"
-    ]
-}
