@@ -251,6 +251,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case LT(1, KC_ENTER):
         case LT(1, KC_BSPC):
         case LT(1, KC_DOT):
+        case LT(1, KC_QUOTE):
 // LT 2
         case LT(2, KC_C):
 // LT 5
